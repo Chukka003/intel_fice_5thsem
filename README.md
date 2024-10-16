@@ -1,154 +1,206 @@
-# intel_fice_5thsem
-#Plex Media Server Installation on Ubuntu
-#This guide walks you through the process of installing Plex Media Server on Ubuntu, setting up media folders, and ensuring proper permissions for both Plex and the user.
+# Plex Media Server Installation on Ubuntu
 
-#Table of Contents
-#Prerequisites
-#Step 1: System Update
-Step 2: Install Required Packages
-Step 3: Add Plex Repository and Key
-Step 4: Install Plex Media Server
-Step 5: Start and Enable Plex Service
-Step 6: Set Up Media Directory
-Step 7: Configure Permissions
-Step 8: Mount Media Folder to Plex Directory
-Step 9: Make Bind Permanent
-Step 10: Adjust Permissions for Media Access
-Step 11: Finalize and Restart Plex Service
-Conclusion
-Prerequisites
+This guide walks you through the process of installing Plex Media Server on Ubuntu, setting up media folders, and ensuring proper permissions for both Plex and the user.
+
+## Table of Contents
+- [Prerequisites](#prerequisites)
+- [Step 1: System Update](#step-1-system-update)
+- [Step 2: Install Required Packages](#step-2-install-required-packages)
+- [Step 3: Add Plex Repository and Key](#step-3-add-plex-repository-and-key)
+- [Step 4: Install Plex Media Server](#step-4-install-plex-media-server)
+- [Step 5: Start and Enable Plex Service](#step-5-start-and-enable-plex-service)
+- [Step 6: Set Up Media Directory](#step-6-set-up-media-directory)
+- [Step 7: Configure Permissions](#step-7-configure-permissions)
+- [Step 8: Mount Media Folder to Plex Directory](#step-8-mount-media-folder-to-plex-directory)
+- [Step 9: Make Bind Permanent](#step-9-make-bind-permanent)
+- [Step 10: Adjust Permissions for Media Access](#step-10-adjust-permissions-for-media-access)
+- [Step 11: Finalize and Restart Plex Service](#step-11-finalize-and-restart-plex-service)
+- [Conclusion](#conclusion)
+
+---
+
+## Prerequisites
+
 Before starting, ensure you have:
+- Ubuntu system (20.04 or later recommended)
+- Sudo privileges
+- Stable internet connection
 
-Ubuntu system (20.04 or later recommended)
-Sudo privileges
-Stable internet connection
-Step 1: System Update
+---
+
+## Step 1: System Update
+
 Make sure your system is up to date before installing Plex.
 
-bash
-Copy code
+```bash
 sudo apt update && sudo apt upgrade -y
-Step 2: Install Required Packages
-Plex requires certain dependencies. Install them using the following command:
+```
+---
+## Step 2: Install Required Packages
 
-bash
-Copy code
+Install the dependencies that Plex requires:
+
+```bash
 sudo apt install dirmngr ca-certificates software-properties-common apt-transport-https curl -y
-Step 3: Add Plex Repository and Key
-Add Plex's official repository and the required signing key.
+```
+---
+## Step 3: Add Plex Repository and Key
 
-bash
-Copy code
-curl -fsSL https://downloads.plex.tv/plex-keys/PlexSign.key | sudo gpg --dearmor | sudo tee /usr/share/keyrings/plex.gpg
-Then, add the Plex repository to your APT sources list:
+1. **Add the GPG Key**:
+To ensure that the packages from Plex are trusted, download the GPG key and add it to your keyring:
 
-bash
-Copy code
-echo deb [signed-by=/usr/share/keyrings/plex.gpg] https://downloads.plex.tv/repo/deb public main | sudo tee /etc/apt/sources.list.d/plexmediaserver.list
-Update the package list:
+   ```bash
+   curl -fsSL https://downloads.plex.tv/plex-keys/PlexSign.key | sudo gpg 
+   dearmor | sudo tee /usr/share/keyrings/plex.gpg
+   ```
+2. **Add the Plex Repository**:
+Add the Plex repository to your APT sources list. This allows you to install Plex directly using the package manager:
 
-bash
-Copy code
-sudo apt update
-Step 4: Install Plex Media Server
-Install Plex Media Server using the APT package manager.
+   ```bash
+   echo deb [signed-by=/usr/share/keyrings/plex.gpg] 
+   https://downloads.plex.tv/repo/deb public main | sudo tee 
+   /etc/apt/sources.list.d/plexmediaserver.list
+   ```
+3. **Update the Package List**:
+Finally, update your package list to include the new Plex repository:
 
-bash
-Copy code
+   ```bash
+   sudo apt update
+   ```
+
+---
+
+## Step 4: Install Plex Media Server
+
+Now that the repository is added, you can install Plex Media Server using the APT package manager. Run the following command:
+
+```bash
 sudo apt install plexmediaserver
-Step 5: Start and Enable Plex Service
-Start Plex and ensure it runs at system startup.
+```
 
-bash
-Copy code
-sudo systemctl start plexmediaserver
-sudo systemctl enable plexmediaserver
-Step 6: Set Up Media Directory
-Create a folder inside your home directory where you will store media files.
+---
 
-bash
-Copy code
+## Step 5: Start and Enable Plex Service
+
+After the installation is complete, start the Plex Media Server service and enable it to run on system boot:
+
+1. **Start the Plex Service**:
+
+   ```bash
+   sudo systemctl start plexmediaserver
+   ```
+2. **Enable Plex to Start on Boot**:
+   ```bash
+   sudo systemctl enable plexmediaserver
+   ```
+
+----
+
+## Step 6: Set Up Media Directory
+
+Create a directory in your home folder to store your media files for Plex. This will allow you to easily manage your media content:
+
+```bash
 mkdir /home/tillu/plexmedia
-Step 7: Configure Permissions
-Set appropriate ownership and permissions for the media directory so Plex can access it.
+```
 
-bash
-Copy code
-sudo chown -R plex:plex /home/tillu/plexmedia
-sudo chmod 755 /home/tillu/plexmedia
-Restart Plex after setting the permissions:
+----
 
-bash
-Copy code
-sudo systemctl restart plexmediaserver
-Step 8: Mount Media Folder to Plex Directory
-Since Plex typically operates within the /var/lib/plexmediaserver/ directory, we need to bind the media folder from your home directory to a location Plex can access.
+## Step 7: Configure Permissions
 
-Create a folder for binding:
+Set the appropriate ownership and permissions for the media directory so that Plex can access it properly:
 
-bash
-Copy code
-sudo mkdir /var/lib/plexmediaserver/plexmedia
-Bind the home directory media folder to Plex's directory:
+1. **Change Ownership**: Ensure that the Plex user has ownership of the media directory:
 
-bash
-Copy code
-sudo mount --bind /home/tillu/plexmedia /var/lib/plexmediaserver/plexmedia
-Step 9: Make Bind Permanent
-To ensure the mount persists after reboot, modify the /etc/fstab file.
+   ```bash
+   sudo chown -R plex:plex /home/tillu/plexmedia
+   ```
+2. **Set Permissions**: Set the permissions so that the Plex user can read and write to the directory:
 
-Open the /etc/fstab file:
+    ```bash
+    sudo chmod 755 /home/tillu/plexmedia
+    ```
 
-bash
-Copy code
-sudo nano /etc/fstab
-Add the following line at the end of the file:
+---
 
-bash
-Copy code
-/home/tillu/plexmedia /var/lib/plexmediaserver/plexmedia none bind 0 0
-Save and exit (Ctrl + X, then Y, and Enter).
+## Step 8: Mount Media Folder to Plex Directory
 
-Step 10: Adjust Permissions for Media Access
-To allow your user to manage files within the media directory, while keeping Plex's access intact, update the folder ownership and group memberships.
+To allow Plex to access your media files, mount the media folder into the Plex directory. Follow these steps:
 
-Change the ownership of the media directory back to your user:
+1. **Create the Plex Media Directory**:
 
-bash
-Copy code
-sudo chown -R tillu:tillu /home/tillu/plexmedia
-Add the plex user to your group:
+   ```bash
+   sudo mkdir /var/lib/plexmediaserver/plexmedia
+   ```
+2. **Mount the Media Folder**: Use the following command to bind your media directory to the Plex media directory:
+   ```bash
+   sudo mount --bind /home/tillu/plexmedia /var/lib/plexmediaserver/plexmedia
+    ```
 
-bash
-Copy code
-sudo usermod -aG tillu plex
-Set permissions to allow Plex and the user to read and write:
+---
 
-bash
-Copy code
-sudo chmod -R 775 /home/tillu/plexmedia
-Step 11: Finalize and Restart Plex Service
-After making these changes, restart Plex to apply the updated permissions.
+## Step 9: Make Bind Permanent
 
-bash
-Copy code
-sudo systemctl restart plexmediaserver
-Verify the permissions:
+To ensure that the bind mount persists after a reboot, you need to add an entry to the `fstab` file:
 
-bash
-Copy code
-ls -ld /home/tillu/plexmedia
-Expected output:
+1. **Edit the fstab File**:
 
-arduino
-Copy code
-drwxrwxr-x  2 tillu tillu 4096 Oct 14 10:15 /home/tillu/plexmedia
-Conclusion
-You have now installed Plex Media Server on Ubuntu, set up a media folder in your home directory, and ensured both Plex and your user have the proper permissions. Plex is ready to serve media to your devices!
+   ```bash
+   sudo nano /etc/fstab
+   ```
+2. **Add the Following Line**: Append the following line to the end of the file to make the bind mount permanent:
 
-Feel free to add or modify this setup as your media library grows!
+   ```bash
+   /home/tillu/plexmedia /var/lib/plexmediaserver/plexmedia none bind 0 0
+   ```
 
-License
-This guide is open-source and licensed under the MIT License.
+----
 
-By following these steps, you should have a fully functioning Plex Media Server on Ubuntu, ready to manage and serve your media files.
+## Step 10: Adjust Permissions for Media Access
+
+To ensure both the Plex service and your user can manage the media files, adjust the permissions accordingly:
+
+1. **Change Ownership Back to the User**: Ensure that your user has ownership of the media directory:
+
+   ```bash
+   sudo chown -R tillu:tillu /home/tillu/plexmedia
+   ```
+2. **Add the User to the Plex Group**: Add your user to the Plex group to give it necessary permissions:
+   
+   ```bash
+   sudo usermod -aG tillu plex
+   ```
+3. **Set Directory Permissions**: Adjust the permissions of the media directory to allow access:
+   
+    ```bash
+    sudo chmod -R 775 /home/tillu/plexmedia
+    ```
+
+---
+
+
+## Step 11: Finalize and Restart Plex Service
+
+After configuring the permissions, restart the Plex Media Server to apply all changes:
+
+1. **Restart the Plex Service**:
+
+   ```bash
+   sudo systemctl restart plexmediaserver
+   ```
+2. **Verify the Folder Permissions**: You can check the permissions of the media directory to ensure everything is set correctly:
+     
+    ```bash
+    ls -ld /home/tillu/plexmedia
+    ```
+#### The output will be : 
+    drwxrwxr-x 2 tillu tillu 4096 Oct 14 10:15 /home/tillu/plexmedia**
+
+we get to know that everything is set to copy files into our server folder
+
+----
+
+## Conclusion
+
+You have successfully installed Plex Media Server, configured the media directories, and set the appropriate permissions for both Plex and your user. Now, you can access the Plex Media Server on your local network and start streaming your media content.
+
