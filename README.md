@@ -1,10 +1,10 @@
 # intel_fice_5thsem
-Plex Media Server Installation on Ubuntu
-This guide walks you through the process of installing Plex Media Server on Ubuntu, setting up media folders, and ensuring proper permissions for both Plex and the user.
+#Plex Media Server Installation on Ubuntu
+#This guide walks you through the process of installing Plex Media Server on Ubuntu, setting up media folders, and ensuring proper permissions for both Plex and the user.
 
-Table of Contents
-Prerequisites
-Step 1: System Update
+#Table of Contents
+#Prerequisites
+#Step 1: System Update
 Step 2: Install Required Packages
 Step 3: Add Plex Repository and Key
 Step 4: Install Plex Media Server
