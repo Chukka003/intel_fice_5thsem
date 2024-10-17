@@ -290,7 +290,7 @@ Plex allows you to share your media libraries with friends, so they can watch co
 
 ![WhatsApp Image 2024-10-17 at 12 25 24 AM (2)](https://github.com/user-attachments/assets/b691e5c4-e374-4483-a41d-35364c6ed9fe)
 
-7. **Whenever our friend plays our videos we can see that on our dashboard
+7. **Whenever our friend plays our videos we can see that on our dashboard**
 
 
 https://github.com/user-attachments/assets/d031d58d-d6cd-442f-af6b-48f5260ea306
