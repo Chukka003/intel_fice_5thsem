@@ -314,6 +314,7 @@ Congratulations! You’ve successfully installed and configured Plex Media Serve
 - [x] Permissions are properly configured.
 - [x] Plex Web is accessible from a browser.
 - [x] Media libraries are added to Plex.
+- [x] Our friend can also access our Plex server.
 
 You can continue managing your server and enjoy streaming media from anywhere.
 
