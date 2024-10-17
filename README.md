@@ -266,6 +266,39 @@ Plex will now begin indexing your media files, fetching metadata, and making the
 
 ---
 
+## Step 15: Share Media with Friends via Plex
+
+Plex allows you to share your media libraries with friends, so they can watch content from their own Plex account. Here’s how to invite someone to watch your media:
+
+1. **Go to your Plex Web Interface**.
+2. **Select a media file** that you want to share or invite someone to watch.
+3. **Click on the “Watch Together”** option in the media controls.
+
+   A dialog will appear, allowing you to invite someone who has access to your Plex library.
+
+![Screenshot from 2024-10-14 16-09-37](https://github.com/user-attachments/assets/0aca8a2d-34f9-4711-ae99-0df76cfd96de)
+
+4. **Choose a friend** from the list of users who already have library access.
+5. **Click “Invite”** to send an invitation. Your friend will be able to watch the content on their Plex account.
+
+
+![WhatsApp Image 2024-10-14 at 4 13 35 PM](https://github.com/user-attachments/assets/c9febfa2-b5de-43e9-9e1c-fd8caec5b174)
+
+6. **Our friends can navigate in their Plex server by following these**:-
+
+![WhatsApp Image 2024-10-17 at 12 25 24 AM (1)](https://github.com/user-attachments/assets/b6ec6ba8-6f5c-46f6-bbfa-68837f9c3247) ![WhatsApp Image 2024-10-17 at 12 25 24 AM](https://github.com/user-attachments/assets/1d659fec-b167-4915-9432-73156ba96993) 
+
+![WhatsApp Image 2024-10-17 at 12 25 24 AM (2)](https://github.com/user-attachments/assets/b691e5c4-e374-4483-a41d-35364c6ed9fe)
+
+
+### Enabling DRM for Playback:
+
+If you encounter the **“Enable DRM”** message when trying to play certain media, you may need to enable DRM (Digital Rights Management) for Plex to play some types of protected content.
+
+---
+
+
+
 ## Conclusion
 
 Congratulations! You’ve successfully installed and configured Plex Media Server on your Ubuntu system. You can now manage and stream your media library across various devices using Plex.
