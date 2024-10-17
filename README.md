@@ -15,7 +15,11 @@ This guide walks you through the process of installing Plex Media Server on Ubun
 - [Step 9: Make Bind Permanent](#step-9-make-bind-permanent)
 - [Step 10: Adjust Permissions for Media Access](#step-10-adjust-permissions-for-media-access)
 - [Step 11: Finalize and Restart Plex Service](#step-11-finalize-and-restart-plex-service)
+- [Step 12: Access Plex Web Interface](#step-12-access-plex-web-interface)
+- [Step 13: Plex Dashboard and Media Library Setup](#step-13-plex-dashboard-and-media-library-setup)
+- [Step 14: Share Media with Friends via Plex](#step-14-share-media-with-friends-via-plex)
 - [Conclusion](#conclusion)
+
 
 ---
 
