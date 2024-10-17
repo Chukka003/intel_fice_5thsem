@@ -214,8 +214,69 @@ we get to know that everything is set to copy files into our server folder
 
 ----
 
+## Step 12: Access Plex Web Interface
+
+Once Plex Media Server is installed and running, you can access the Plex Web interface to configure your media libraries and settings. Open your web browser and navigate to the following URL:
+
+```bash
+http://<your-server-ip>:32400/web
+```
+
+Replace `<your-server-ip>` with the IP address of the machine where Plex Media Server is installed. For example:
+
+```bash
+http://172.26.144.64:32400/web
+```
+----
+
+
+If everything is set up correctly, you will be directed to the Plex login screen. Use your Plex account to sign in.
+
+### Screenshot Example:
+Below is an example of the Plex Web UI login screen you should see when accessing the server:
+
+![Screenshot from 2024-10-14 15-50-00](https://github.com/user-attachments/assets/42be18a7-2798-4133-a2f5-20f6427be5f6)
+
+
+---
+
+## Step 13: Plex Dashboard and Media Library Setup
+
+Once you’ve successfully signed in and granted access, you will be taken to the Plex dashboard where you can begin configuring your media libraries. Add directories containing your media files, and Plex will automatically organize them into categories like Movies, TV Shows, Music, and more.
+
+From the dashboard, follow these steps:
+
+1. **Click on “Add Library”** in the left-hand navigation.
+2. **Select the type of media** (e.g., Movies, Music, TV Shows) that you want to add.
+
+![Screenshot from 2024-10-14 16-00-39](https://github.com/user-attachments/assets/964da9a8-8d62-468b-b62d-a9e7c6d616f3)
+
+
+3. **Browse for the directory** where your media files are stored. In our case, the folder would be `/home/tillu/plexmedia`.
+
+![Screenshot from 2024-10-14 16-00-47](https://github.com/user-attachments/assets/2f25a1d5-c039-41ac-b4b7-dfe6e0034960)
+
+4. **Click “Add Library”** to confirm and start scanning the folder.
+
+
+![Screenshot from 2024-10-14 16-10-36](https://github.com/user-attachments/assets/fb8c7a7a-b6ed-4a1a-944a-f29f6ca54530)
+
+
+Plex will now begin indexing your media files, fetching metadata, and making the content available for streaming.
+
+---
 
 ## Conclusion
 
-You have successfully installed Plex Media Server, configured the media directories, and set the appropriate permissions for both Plex and your user. Now, you can access the Plex Media Server on your local network and start streaming your media content.
+Congratulations! You’ve successfully installed and configured Plex Media Server on your Ubuntu system. You can now manage and stream your media library across various devices using Plex.
 
+### Final Checklist:
+- [x] Plex Media Server is installed and running.
+- [x] Media directory is set up and mounted.
+- [x] Permissions are properly configured.
+- [x] Plex Web is accessible from a browser.
+- [x] Media libraries are added to Plex.
+
+You can continue managing your server and enjoy streaming media from anywhere.
+
+---
