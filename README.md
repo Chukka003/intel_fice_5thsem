@@ -87,6 +87,8 @@ Now that the repository is added, you can install Plex Media Server using the AP
 sudo apt install plexmediaserver
 ```
 
+![5](https://github.com/user-attachments/assets/ea157c74-18dd-4dc9-8b9f-0a33f22dd7a0)
+
 ---
 
 ## Step 5: Start and Enable Plex Service
@@ -129,7 +131,6 @@ Set the appropriate ownership and permissions for the media directory so that Pl
     ```bash
     sudo chmod 755 /home/tillu/plexmedia
     ```
-
 ---
 
 ## Step 8: Mount Media Folder to Plex Directory
@@ -145,6 +146,7 @@ To allow Plex to access your media files, mount the media folder into the Plex d
    ```bash
    sudo mount --bind /home/tillu/plexmedia /var/lib/plexmediaserver/plexmedia
     ```
+![Screenshot from 2024-10-14 15-48-18](https://github.com/user-attachments/assets/e9f0c54c-5fa5-4c0c-ab7c-3df1790cad16)
 
 ---
 
@@ -206,6 +208,9 @@ After configuring the permissions, restart the Plex Media Server to apply all ch
     drwxrwxr-x 2 tillu tillu 4096 Oct 14 10:15 /home/tillu/plexmedia**
 
 we get to know that everything is set to copy files into our server folder
+
+![Screenshot from 2024-10-14 16-24-57](https://github.com/user-attachments/assets/e696f403-cc44-447d-b945-f6708e5816ba)
+
 
 ----
 
