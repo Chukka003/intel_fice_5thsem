@@ -292,7 +292,9 @@ Plex allows you to share your media libraries with friends, so they can watch co
 
 7. **Whenever our friend plays our videos we can see that on our dashboard
 
-https://github.com/user-attachments/assets/67ea42bf-37f8-436e-8be3-a9027c1d82eb
+
+https://github.com/user-attachments/assets/d031d58d-d6cd-442f-af6b-48f5260ea306
+
 
 ### Enabling DRM for Playback:
 
