@@ -215,10 +215,6 @@ we get to know that everything is set to copy files into our server folder
 ----
 
 
-https://github.com/user-attachments/assets/b5cf6282-307e-453c-bd53-d3387ee67b2d
-
-
-
 ## Conclusion
 
 You have successfully installed Plex Media Server, configured the media directories, and set the appropriate permissions for both Plex and your user. Now, you can access the Plex Media Server on your local network and start streaming your media content.
