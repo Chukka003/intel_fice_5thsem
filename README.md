@@ -35,6 +35,7 @@ Make sure your system is up to date before installing Plex.
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
+![Screenshot from 2024-10-14 15-38-32](https://github.com/user-attachments/assets/32f0cd35-9fcd-443d-a649-1ee1ae218fd3)
 ---
 ## Step 2: Install Required Packages
 
