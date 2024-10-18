@@ -1,3 +1,6 @@
+### Name : Chukka Chaitanya
+### Reg No. 12201710
+
 # Plex Media Server
 
 This guide walks you through the process of installing Plex Media Server on Ubuntu, setting up media folders, and ensuring proper permissions for both Plex and the user.
