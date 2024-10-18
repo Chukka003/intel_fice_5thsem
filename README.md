@@ -275,7 +275,7 @@ Plex will now begin indexing your media files, fetching metadata, and making the
 
 ---
 
-## Step 15: Share Media with Friends via Plex
+## Step 14: Share Media with Friends via Plex
 
 Plex allows you to share your media libraries with friends, so they can watch content from their own Plex account. Here’s how to invite someone to watch your media:
 
